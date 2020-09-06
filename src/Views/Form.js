@@ -11,13 +11,15 @@ const Form = () => {
       })
 
       const handleChange = (e) => {
-        console.log(e.target.value);
+        setState({...state,[e.target.name]:e.target.value})
       }
 
       const handleSubmit = (e) => {
           e.preventDefault();
           console.log(e);
       }
+
+      const {mascota, dueño, fecha, hora, sintomas} = cita;
    
     return (
         <Fragment>
@@ -30,6 +32,7 @@ const Form = () => {
             className='u-full-width'
             placeholder='¿Quien es la mascota?'
             onChange={handleChange}
+            value={mascota}
             />
             <label>Nombre dueño</label>
             <input
@@ -38,6 +41,7 @@ const Form = () => {
             className='u-full-width'
             placeholder='¿Quien es el dueño?'
             onChange={handleChange}
+            value={dueño}
             />
             <label>Fecha</label>
             <input
@@ -45,6 +49,7 @@ const Form = () => {
             name='fecha'
             className='u-full-width'
             onChange={handleChange}
+            value={fecha}
             />
             <label>Hora</label>
             <input
@@ -52,6 +57,7 @@ const Form = () => {
             name='hora'
             className='u-full-width'
             onChange={handleChange}
+            value={hora}
             />
             <label>Sintomas</label>
             <textarea
@@ -59,6 +65,7 @@ const Form = () => {
             className='u-full-width'
             placeholder='Porfavor, necesitamos más información. Para poder evaluar de la mejor manera.'
             onChange={handleChange}
+            value={sintomas}
             />
             <button
             type='submit'
