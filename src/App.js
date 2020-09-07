@@ -1,6 +1,7 @@
 import React, {Fragment, useState} from 'react';
 import Form from './Views/Form';
 import './App.css'
+import Appointment from './Views/Appointment'
 
 function App() {
   
@@ -9,6 +10,12 @@ function App() {
 
   const makeAp = ap =>{
     setApList([...apList, ap])
+  }
+
+  const deleteAp = (e,id) => {
+    e.preventDefault();
+    const newApList = apList.filter(appointment => appointment.id !== id );
+    setApList(newApList);
   }
 
   return (
@@ -21,6 +28,16 @@ function App() {
         makeAp={makeAp}
         // traspasando los props al hijo para que que el padre renderize
         />
+        </div>
+        <div className='one-half column'>
+          <h2>Adiminista tus citas</h2>
+          {apList.map(ap =>
+            <Appointment 
+            appointment ={ap}
+            id={ap.id}
+            deleteAp={deleteAp}
+            />          
+          )}
         </div>
       </div>
       </div>

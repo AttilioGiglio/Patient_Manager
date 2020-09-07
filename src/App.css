@@ -50,7 +50,6 @@ input, textarea{
 }
 button{
     width: 15em;
-    margin-left: 8em;
     margin-top:1em;
     background: #f4845f;
     border:solid white;
@@ -63,34 +62,38 @@ button:hover{
     border:solid #f4845f;
     color: #f4845f;
 }
-  .cita {
-    padding: 2rem;
+  .appointment {
+    padding: 1rem;
     background: white;
     border-bottom: 1px solid #e1e1e1;
     color: black;
+    margin-left: 4rem;
+    margin-right: 2rem;
+    margin-top:1rem
   }
   
-  .cita p {
+  .appointment p {
     font-weight: bold;
     margin-bottom: .8rem;
   }
-  .cita p span {
+  .appointment p span {
     font-weight: normal;
   
   }
-  .cita:first-of-type {
+  .appointment:first-of-type {
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
   }
-  .cita:last-of-type {
+  .appointment:last-of-type {
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
   }
-  .button.eliminar,
-  .button.eliminar:hover {
+  .button.delete,
+  .button.delete:hover {
     background-color: #f25c54;
     color: white;
     margin-top: 2rem;
+    
   }
   
   .alerta-error {

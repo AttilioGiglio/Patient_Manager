@@ -12,15 +12,18 @@ const Form = ({ makeAp }) => {
         })
 
     const [error, setError] = useState(false)
-
+    // destructuring, evitando el uso de state.mascota = appointment.dueño, etc.
     const { mascota, dueño, fecha, hora, sintomas } = appointment;
-
+    
     const handleChange = (e) => {
+        // con el uso de hook usestate, se puede personalizar el nombre del setstate.
         setAppointment({ ...appointment, [e.target.name]: e.target.value })
     }
 
     const handleSubmit = (e) => {
+        // cancela el evento si es cancelable, lo que significa que la acción predeterminada que pertenece al evento no ocurrirá. Al hacer clic en un "Submit" botón, evitar que enviar un formulario por query en url.
         e.preventDefault();
+        // Mensaje de error al no completar todos los inputs
         if (mascota.trim() === '' || dueño.trim() === '' || fecha.trim() === '' || hora.trim() === '' || sintomas.trim() === '') {
             setError(true);
             return;
@@ -32,28 +35,25 @@ const Form = ({ makeAp }) => {
         // Imprimir cita en app por props en una lista
         makeAp(appointment);
         // Reiniciar Form
-        setAppointment(
-            {
-                mascota: '',
-                dueño: '',
-                fecha: '',
-                hora: '',
-                sintomas: ''
-            })
+  
     }
 
 
     return (
-        <Fragment>
+        <Fragment
+        // Reemplaza a los divs y se pueden ejecutar de manera independiente, por lo que puedes poner 2 separados.
+        >    
             <h2>Crear Cita</h2>
             {error ? <p className='alerta-error u-full-width'>Todos los campos son obligatorios</p> : null}
             <form className='one-fourth column' onSubmit={handleSubmit}>
+            {/* addEvent listener que rastrea los clicks. Estos se ejecutan al hacer click al boton respectivo  */}
                 <label>Nombre mascota</label>
                 <input
                     type='text'
                     name='mascota'
                     className='u-full-width'
                     placeholder='¿Quien es la mascota?'
+                    // addEvent listener que rastrea los cambios en el input. Estos se ejecutan al escribir o borrar.
                     onChange={handleChange}
                     value={mascota}
                 />
