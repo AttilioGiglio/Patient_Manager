@@ -1,15 +1,25 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useState} from 'react';
 import Form from './Views/Form';
 import './App.css'
 
 function App() {
+  
+  const [apList, setApList] = useState([]);
+
+
+  const makeAp = ap =>{
+    setApList([...apList, ap])
+  }
+
   return (
     <Fragment>
       <h1>Administador de Mascotas</h1>
       <div className='container'>
       <div className='row'>
         <div className='one-half column'>
-        <Form />
+        <Form 
+        makeAp={makeAp}
+        />
         </div>
       </div>
       </div>
