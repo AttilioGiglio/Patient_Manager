@@ -19,6 +19,7 @@ function App() {
         <div className='one-half column'>
         <Form 
         makeAp={makeAp}
+        // traspasando los props al hijo para que que el padre renderize
         />
         </div>
       </div>
