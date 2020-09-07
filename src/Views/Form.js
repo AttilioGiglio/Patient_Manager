@@ -35,7 +35,15 @@ const Form = ({ makeAp }) => {
         // Imprimir cita en app por props en una lista
         makeAp(appointment);
         // Reiniciar Form
-  
+        setAppointment(
+            {
+                mascota: '',
+                dueño: '',
+                fecha: '',
+                hora: '',
+                sintomas: ''
+            }
+        )
     }
 
 

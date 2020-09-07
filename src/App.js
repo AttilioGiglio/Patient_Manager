@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from 'react';
+import React, {Fragment, useState, useEffect} from 'react';
 import Form from './Views/Form';
 import './App.css'
 import Appointment from './Views/Appointment'
@@ -7,6 +7,10 @@ function App() {
   
   const [apList, setApList] = useState([]);
 
+  // Para realizar ciertas operaciones cuando el state cambia. Cada vez que cambie el state, se ejecuta el useffect
+  useEffect(()=>{
+    console.log(apList)
+  },[apList])
 
   const makeAp = ap =>{
     setApList([...apList, ap])
