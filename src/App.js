@@ -12,11 +12,13 @@ function App() {
     setApList([...apList, ap])
   }
 
-  const deleteAp = (e,id) => {
-    e.preventDefault();
+  const deleteAp = (id) => {
     const newApList = apList.filter(appointment => appointment.id !== id );
     setApList(newApList);
   }
+
+  // Mensaje Condicional
+  const titule = apList.length===0 ? 'No hay citas' : 'Administra citas'; 
 
   return (
     <Fragment>
@@ -30,7 +32,7 @@ function App() {
         />
         </div>
         <div className='one-half column'>
-          <h2>Adiminista tus citas</h2>
+          <h2>{titule}</h2>
           {apList.map(ap =>
             <Appointment 
             appointment ={ap}
