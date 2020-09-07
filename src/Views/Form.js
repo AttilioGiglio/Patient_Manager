@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import PropTypes from 'prop-types';
 
 const Form = ({ makeAp }) => {
     const [appointment, setAppointment] = useState
@@ -106,6 +107,10 @@ const Form = ({ makeAp }) => {
             </form>
         </Fragment>
     )
+}
+// Es para documentar o validar componentes.
+Form.propTypes = {
+    makeAp: PropTypes.func.isRequired
 }
 
 export default Form

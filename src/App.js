@@ -1,16 +1,26 @@
 import React, {Fragment, useState, useEffect} from 'react';
 import Form from './Views/Form';
-import './App.css'
-import Appointment from './Views/Appointment'
+import './App.css';
+import Appointment from './Views/Appointment';
 
 function App() {
+  // Adding appointments to localStorage and request to local storage
+  let initialApList = JSON.parse(localStorage.getItem('apList'));
+  if(!initialApList){
+    initialApList = [];
+  }
   
   const [apList, setApList] = useState([]);
 
   // Para realizar ciertas operaciones cuando el state cambia. Cada vez que cambie el state, se ejecuta el useffect
   useEffect(()=>{
-    console.log(apList)
-  },[apList])
+    // Response from local storage
+    if(initialApList){
+      localStorage.setItem('apList', JSON.stringify(apList))
+    } else {
+      localStorage.setItem('apList', JSON.stringify([]));
+    }
+  },[apList, initialApList])
 
   const makeAp = ap =>{
     setApList([...apList, ap])
