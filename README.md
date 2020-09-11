@@ -1,5 +1,4 @@
-Link to deployment: https://naughty-keller-7613db.netlify.app/
-
+Link to site: https://naughty-keller-7613db.netlify.app/ (Deployed with Netlify)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
